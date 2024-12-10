@@ -68,10 +68,6 @@
                     <td>Camera-Ready Submission:</td>
                     <td class="highlight">November 20, 2024, 11:59 pm, EST</td>
                 </tr>
-                <!-- <tr>
-                    <td>Workshop Dates:</td>
-                    <td class="highlight">December 15-18, 2024, 11:59 pm, EST</td>
-                </tr> -->
             </table>
         </section>
  
@@ -95,7 +91,7 @@
                     </tr>
                     <tr>
                         <td>14:05-14:40</td>
-                        <td>Invited Talk 1</td>
+                        <td>Invited Talk 1: Incremental Sliding Window Connectivity over Streaming Graphs.</td>
                         <td>Dr. Chao Zhang</td>
                     </tr>
                     <tr>
@@ -105,7 +101,7 @@
                     </tr>
                     <tr>
                         <td>15:00-15:35</td>
-                        <td>Invited Talk 2</td>
+                        <td>Invited Talk 2: Learning based Graph Query Optimization</td>
                         <td>Dr. Yutong Ye</td>
                     </tr>
                     <tr>
@@ -140,7 +136,17 @@
                     </tr>
                 </tbody>
             </table>
-        </section>      
+        </section>
+
+        <section id="invited-talks-abstracts">
+            <h2>Invited Talks Abstracts</h2>
+            <h3>Chao Zhang: Incremental Sliding Window Connectivity over Streaming Graphs.</h3>
+            <p><strong>Abstract:</strong> We study index-based processing for connectivity queries within sliding windows on streaming graphs. These queries, which determine whether two vertices belong to the same connected component, are fundamental operations in real-time graph data processing and demand high throughput and low latency. While indexing methods that leverage data structures for fully dynamic connectivity can facilitate efficient query processing, they encounter significant challenges with deleting expired edges from the window during window updates. We introduce a novel indexing approach that eliminates the need for physically performing edge deletions. This is achieved through a unique bidirectional incremental computation framework, referred to as the BIC model. The BIC model implements two distinct incremental computations to compute connected
+components within the window, operating along and against the timeline, respectively. These computations are then merged to efficiently compute queries in the window. We propose techniques for optimized index storage, incremental index updates, and efficient query processing to improve BIC effectiveness. Empirically, BIC achieves a 14× increase in throughput and a reduction in P95 latency by up to 3900× when compared to state-of-the-art indexes.</p>
+
+            <h3>Yutong Ye: Learning based Graph Query Optimization</h3>
+            <p><strong>Abstract:</strong> In recent years, learning-based graph query optimization has demonstrated great potential in managing large-scale graph data, offering innovative solutions for efficient subgraph matching and community detection. This talk will focus on this topic, beginning with a graph neural network-based path dominance embedding method for accurate and error-free exact subgraph matching. Next, it will delve into the dynamic subgraph matching problem, introducing vertex dominance embeddings and degree-aware pruning techniques to efficiently handle subgraph queries on dynamic graphs. Finally, it will present GCLS², a structure-aware graph contrastive learning framework for community detection, which captures structural semantics to achieve accurate and efficient community discovery. The talk will conclude with a brief discussion on future research directions in graph query optimization.</p>
+        </section>
 
         <section id="program-committee">
             <h2>Program Co-Chairs</h2>
@@ -187,5 +193,36 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const pcMembers = [
+            { name: "Jieyang Chen", affiliation: "University of Alabama at Birmingham", country: "USA" },
+            { name: "Hang Liu", affiliation: "Rutgers University", country: "USA" },
+            { name: "Weilong Ren", affiliation: "ShenZhen Institute of Computing Sciences", country: "China" },
+            { name: "Shaoxu Song", affiliation: "Tsinghua University", country: "China" },
+            { name: "Ryan Wickman", affiliation: "Microsoft", country: "USA" },
+            { name: "Yutong Ye", affiliation: "East China Normal University", country: "China" },
+            { name: "Bo Yuan", affiliation: "Rutgers University", country: "USA" },
+            { name: "Chen Jason Zhang", affiliation: "The Hong Kong Polytechnic University", country: "Hong Kong" },
+            { name: "Libin Zheng", affiliation: "Sun Yat-sen University", country: "China" },
+            { name: "Weiguo Zheng", affiliation: "Fudan University", country: "China" },
+            { name: "Lei Zou", affiliation: "Peking University", country: "China" }
+        ];
+
+        const pcMembersTable = document.getElementById('pc-members');
+        
+        pcMembers.forEach(member => {
+            const row = pcMembersTable.insertRow();
+            const nameCell = row.insertCell(0);
+            const affiliationCell = row.insertCell(1);
+            const countryCell = row.insertCell(2);
+            
+            nameCell.textContent = member.name;
+            affiliationCell.textContent = member.affiliation;
+            countryCell.textContent = member.country;
+        });
+    });
+    </script>
 </body>
 </html>
